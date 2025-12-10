@@ -1,85 +1,61 @@
-# AI-Native Textbook: Physical AI & Humanoid Robotics
+# AI-Native Textbook Website
 
-AI-powered textbook generation system with Docusaurus frontend.
+Docusaurus-based static site for the Physical AI & Humanoid Robotics textbook.
 
 ## Quick Start
 
-### 1. Setup Environment
-
 ```bash
-# Install Python dependencies
-pip install anthropic markdown-it-py
+# Install dependencies
+npm install
 
-# Install Node dependencies
-cd website && npm install
+# Start development server
+npm start
+
+# Build for production
+npm run build
+
+# Serve production build locally
+npm run serve
 ```
 
-### 2. Set API Key
+## Development
 
-```bash
-export ANTHROPIC_API_KEY="your-key-here"
-```
+- **Framework**: Docusaurus 3.x
+- **Language**: TypeScript + React 18
+- **Node Version**: >=18.0.0
 
-### 3. Generate Chapters
+## Scripts
 
-```bash
-# Generate all 6 MVP chapters
-python scripts/generate_chapters.py
+- `npm start` - Start dev server (hot reload)
+- `npm run build` - Create production build
+- `npm run serve` - Serve production build locally
+- `npm run typecheck` - Run TypeScript type checking
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
 
-# Or generate single chapter
-python scripts/generate_single.py 1
-```
-
-### 4. Preview
-
-```bash
-cd website
-npm run start
-```
-
-Open http://localhost:3000/docs/intro
-
-## Project Structure
+## Structure
 
 ```
-├── agents/content_generator/  # AI generation logic
-├── backend/src/              # API & database (optional)
-├── website/                  # Docusaurus site
-│   └── docs/                # Generated chapters
-└── scripts/                 # Generation scripts
+website/
+├── docs/           # Generated textbook chapters (markdown)
+├── src/
+│   ├── components/ # React components (ChapterQuiz, LearningBooster)
+│   └── css/        # Custom styles
+├── docusaurus.config.js  # Docusaurus configuration
+├── sidebars.js     # Sidebar navigation
+└── package.json    # Dependencies
 ```
 
-## Constitution Compliance
+## Custom Components
 
-- **Word count**: 800-1200 per chapter ✅
-- **Reading time**: 5-7 minutes ✅
-- **Mobile-first**: Responsive design ✅
-- **Free-tier**: Anthropic API ✅
+### ChapterQuiz
 
-## Commands
+Interactive multiple-choice quiz component for chapter assessments.
 
-```bash
-# Generate
-python scripts/generate_chapters.py
+### LearningBooster
 
-# Preview
-cd website && npm run start
+Callout component for analogies, examples, and simplified explanations.
 
-# Build
-cd website && npm run build
+## Configuration
 
-# Deploy
-cd website && npm run deploy
-```
-
-## Features
-
-- ✅ 6 MVP chapters on Physical AI & Robotics
-- ✅ AI-generated content with validation
-- ✅ Word count enforcement (800-1200)
-- ✅ Docusaurus integration
-- 🚧 Chapter summaries (Phase 4)
-- 🚧 Quizzes (Phase 5)
-- 🚧 Learning boosters (Phase 6)
-
-**Current Status**: Phase 3 (User Story 1) - MVP chapter generation complete
+See `docusaurus.config.js` for site configuration and `sidebars.js` for navigation structure.
